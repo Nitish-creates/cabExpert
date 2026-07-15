@@ -2,7 +2,7 @@ from django.http import HttpResponse
 
 
 def login(request):
-    return HttpResponse('Welcome to the login page')
+    return HttpResponse('Welcome to the login page') 
 
 def register(request):
     return HttpResponse('Welcome to the register page')
