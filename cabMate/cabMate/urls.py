@@ -21,8 +21,7 @@ from django.conf.urls.static import static
 from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include("accounts.urls")),
-    path('register/',include("accounts.urls")),
+    path('', include("accounts.urls")),
     path('home/',views.home,name='home'),
     path('createRide/',views.CreateRide,name='createRide'),
     path('joinRide/',views.JoinRide,name='joinRide'),
