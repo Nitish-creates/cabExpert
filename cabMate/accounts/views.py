@@ -24,21 +24,27 @@ def Register_view(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         confirmPassword = request.POST.get('confirmPassword')
-
+        context = {
+            "username": username,
+            "email": email,
+            "phoneNumber": request.POST.get("phoneNumber"),
+            "course": request.POST.get("course"),
+            "year": request.POST.get("year"),
+        }
         # checking passowrd
         if password != confirmPassword:
-            messages.error(request,"Psswords Didnt match")
-            return redirect('register')
-        
-        # checking if email already registered 
-        if User.objects.filter(email = email).exists():
+            messages.error(request,"Passwords Didn't match")
+            return render(request,'accounts/register.html',context)
+    
+        # checking if email already registered
+        if User.objects.filter(email=email).exists():
             messages.error(request,"Email already Exists")
-            return redirect('register')
+            return render(request,'accounts/register.html',context)
         
         # checiking if username already exists
         if User.objects.filter(username = username).exists():
             messages.error(request,"Username Already Exits")
-            return redirect('register')
+            return render(request,'accounts/register.html',context)
         
         # create the user 
         User.objects.create_user(
@@ -48,7 +54,7 @@ def Register_view(request):
         )
 
         messages.success(request, "Account created successfully!")
-        return redirect("login")
+        return redirect('login')
     
     return render(request,'accounts/register.html')
 

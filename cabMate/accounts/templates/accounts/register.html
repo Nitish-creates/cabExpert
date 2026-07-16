@@ -12,18 +12,18 @@
             <p style="color:red;">{{ message }}</p> 
         {% endfor %} 
     {% endif %}
-    <form method="POST"></form>
+    <form method="POST">
         {% csrf_token %}
         <label>Name</label>
         <input type="text" name = 'username' required>
         <label>Phone No.</label>
         <input type="text" name = 'phoneNumber' required>
         <label>Email</label>
-        <input type="text" name = 'email' required>
-        <label>Your College course</label>
+        <input type="email" name = 'email' required>
+        <label>Your course</label>
         <input type="text" name = 'course' required>
-        <label>Acadmic Year</label>
-        <select name="year">
+        <label>Academic Year</label>
+        <select name="year" required>
             <option value="firstYear">1st Year</option>
             <option value="secondYear">2nd Year</option>
             <option value="thirdYear">3rd Year</option>
@@ -32,12 +32,13 @@
             <option value="alumni">Alumni</option>
         </select>
         <label>Password</label>
-        <input type="Password" name = 'password' required>
+        <input type="password" name = 'password' required>
         <label>Confirm Password</label>
         <input type="password" name = 'confirmPassword' required>
         <button type = 'submit'>Register</button>
         <p>Already have an account?
             <a href="{% url 'login' %}">Login?</a>
         </p>
+    </form>    
 </body>
 </html>
