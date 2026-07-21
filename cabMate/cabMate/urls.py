@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("accounts.urls")),
     path('home/',views.home,name='home'),
-    path('createRide/',views.CreateRide,name='createRide'),
+    path('createRide/',include("ride.urls")),
     path('joinRide/',views.JoinRide,name='joinRide'),
     path('myRide/',views.myRide,name='myRide')
 ]+static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
