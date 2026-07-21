@@ -18,4 +18,10 @@ class Ride(models.Model):
         return f"{self.pickup} → {self.destination}"
     
 class Ride_member(models.Model):
-    
+    ride = models.ForeignKey(Ride, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    people_count = models.PositiveIntegerField(default=1)
+    joined_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username} joined {self.ride}"
