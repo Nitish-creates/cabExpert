@@ -10,7 +10,7 @@ class Ride(models.Model):
     creator = models.ForeignKey(User,on_delete = models.CASCADE)
     pickup = models.CharField(max_length=100)
     destination = models.CharField(max_length=100)
-    prefered_time = models.DateTimeField()
+    preferred_time = models.DateTimeField()
     flexibility = models.IntegerField(choices=FLEXIBILITY_CHOICES)
     max_seats = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add= True)

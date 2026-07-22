@@ -5,7 +5,6 @@ class RideForm(ModelForm):
     
     class Meta:
         model = Ride
-        fields = ["pickup","destination","prefered_time","flexibility","max_seats"]
+        fields = ["pickup","destination","preferred_time","flexibility","max_seats"]
         
-
     

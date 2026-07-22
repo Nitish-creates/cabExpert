@@ -1,14 +1,8 @@
-{% load static %}
-{% load tailwind_tags %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% tailwind_css %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register | CabMate</title>
-</head>
-
+{% extends "index.html" %}
+{% block title %}
+Register | CabMate
+{% endblock %}
+{% block content %}
 <body class="bg-gray-50">
 
     <div class="min-h-screen flex bg-gray-50">
@@ -368,5 +362,4 @@
 
     </div>
 
-</body>
-</html>
+{% endblock %}
